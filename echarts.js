@@ -21,9 +21,7 @@ myChart.getZr().on('mousemove', param => {
 //echarts 饼图标签文字换行
 
 label：{
-    formatter
-
-function(e){
+    formatter function(e){
 　　　　 var newStr=" ";
         var start,end;
  　　　　var name_len=e.name.length;    　　　　　　　　　　　　   //每个内容名称的长度
