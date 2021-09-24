@@ -1,4 +1,4 @@
-echarts设置滑过可点击区域时将鼠标变为小手样式（一般与区域点击事件结合使用）
+//echarts设置滑过可点击区域时将鼠标变为小手样式（一般与区域点击事件结合使用）
 
 myChart.getZr().on('mousemove', param => {
 
@@ -18,7 +18,7 @@ myChart.getZr().on('mousemove', param => {
 
 
 
-echarts2 饼图标签文字换行
+//echarts 饼图标签文字换行
 
 label：{
     formatter
