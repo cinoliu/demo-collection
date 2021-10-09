@@ -7,7 +7,7 @@
       <!-- <seamless /> -->
       <pyramid />
 
-      <scrollArc />
+      <scrollArc  />
       <szBar />
 
       <ringPin />
@@ -25,7 +25,7 @@
       <colorfulRadar />
 
       <dynamicList />
-      <!-- <bar3d /> -->
+           <reverse />
       <colorfulArea />
 
       <rainbow />
@@ -35,7 +35,14 @@
       <circleNesting />
 
       <surround />
-      <reverse />
+ 
+
+      <bar43d />
+     <topology />
+
+
+
+
       <div class="divider"></div>
     </div>
   </div>

@@ -78,8 +78,8 @@ export default {
 .sn-container {
   left: 50px;
   top: 3300px;
-  width: 800px;
-  height: 600px;
+  width: 1000px;
+  height: 800px;
 }
 
 .main {

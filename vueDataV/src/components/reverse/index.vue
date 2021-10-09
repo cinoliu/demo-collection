@@ -38,10 +38,10 @@ export default {
 
 <style lang="scss" scoped>
 .sn-container {
-  left: 880px;
-  top: 3300px;
-  width: 432px;
-  height: 600px;
+  left: 644px;
+  top: 2409px;
+  width: 450px;
+  height: 400px;
 }
 
 .main {

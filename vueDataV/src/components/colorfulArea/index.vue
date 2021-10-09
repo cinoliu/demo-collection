@@ -261,7 +261,7 @@ export default {
 
 <style lang="scss" scoped>
 .sn-container {
-  left: 1306px;
+  left: 1140px;
   top: 2408px;
   width: 560px;
   height: 400px;

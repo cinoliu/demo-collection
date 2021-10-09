@@ -23,7 +23,6 @@ import flashCloud from './flashCloud' // 闪动云
 import ringPie from './ringPie' // 环形饼图
 import colorfulRadar from './colorfulRadar' // 多彩雷达
 import dynamicList from './dynamicList' // 动态列表动画
-import bar3d from './bar3d' // 3D立体柱状图
 import colorfulArea from './colorfulArea' // 多彩轮播面积
 import rainbow from './rainbow' // 彩虹轨道图
 import gauge from './gauge' // 仪表盘
@@ -38,6 +37,8 @@ import surround from './surround' // 3d环绕旋转
 import reverse from './reverse' // 反转
 
 
+import bar43d from './bar43d' // 3d柱图
+import topology from './topology' // 椭圆节点拓扑
 
 const components = {
     bgAnimation,
@@ -59,7 +60,6 @@ const components = {
     ringPie,
     colorfulRadar,
     dynamicList,
-    bar3d,
     colorfulArea,
     rainbow,
     gauge,
@@ -67,7 +67,9 @@ const components = {
     circleNesting,
     suspendedBall,
     surround,
-    reverse
+    reverse,
+    bar43d,
+    topology
 
 };
 

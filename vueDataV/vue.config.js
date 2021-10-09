@@ -1,5 +1,5 @@
 module.exports = {
-    publicPath: process.env.NODE_ENV === "production" ? "/vueDataV/" : "/",
+    publicPath: process.env.NODE_ENV === "production" ? "//" : "/",
     productionSourceMap: false,
     lintOnSave: false,
     devServer: {

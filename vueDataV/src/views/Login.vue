@@ -3,10 +3,10 @@
  -->
 <template>
   <div class="login-container">
-  	<div class="layer">
+  	<!-- <div class="layer">
   			<div class="some-space">
         	<div class="form">
-						<h2>大数据可视化平台</h2>
+						<h2>可视化插件</h2>
 						<div class="item">
 							<i class="iconfont icon-user"></i>
 							<input
@@ -68,7 +68,7 @@
       :content="modalContent"
       :visible.sync="visible" 
       @confirm="confirm">
-    </modal>
+    </modal> -->
 
   </div>
 </template>
@@ -93,7 +93,9 @@ export default {
   },
   created() {},
   mounted() {
-
+  this.$router.push({
+          path: '/home'
+         })
   },
   methods: {
   	login () {

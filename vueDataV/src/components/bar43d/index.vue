@@ -1,0 +1,285 @@
+<!--
+ 描述: 3D柱形图
+ -->
+
+<template>
+  <div class="wrap-container sn-container">
+    <div class="sn-content">
+      <div class="sn-title">3D柱形图</div>
+      <div class="sn-body">
+        <div class="wrap-container">
+          <div id="bar43dId" style="width:1000px;height:600px;"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+<script>
+export default {
+  name: "bar43d",
+  data() {
+    return {
+      option: null,
+    };
+  },
+  mounted() {
+    this.getEchart();
+  },
+  methods: {
+    getEchart() {
+        var myChart = echarts.init(document.getElementById('bar43dId'));
+      console.log(myChart)
+      var option = {
+            tooltip: { //提示框组件
+                trigger: 'axis',
+                formatter: '{b}<br />{a2}: {c2}<br />{a1}: {c1}<br />{a5}: {c5}',
+                axisPointer: {
+                    type: 'shadow',
+                    label: {
+                        backgroundColor: 'rgba(17, 27, 54, 1)'
+                    }
+                },
+                textStyle: {
+                    color: '#fff',
+                    fontStyle: 'normal',
+                    fontFamily: '微软雅黑',
+                    fontSize: 12,
+                }
+            },
+            grid: {
+                left: '10%',
+                right: '10%',
+                bottom: '10%',
+                top: '40%',
+                //	padding:'0 0 10 0',
+                containLabel: true,
+            },
+            legend: { //图例组件，颜色和名字
+                right: '10%',
+                top: '30%',
+                itemGap: 16,
+                itemWidth: 18,
+                itemHeight: 10,
+                selectedMode: false,
+                data: [{
+                    name: '历史最优'
+                }, {
+                    name: '上一次成绩',
+                }, {
+                    name: '本次成绩',
+                }],
+                textStyle: {
+                    color: '#a8aab0',
+                    fontStyle: 'normal',
+                    fontFamily: '微软雅黑',
+                    fontSize: 12,
+                }
+            },
+            xAxis: [{
+                type: 'category',
+                //	boundaryGap: true,//坐标轴两边留白
+                data: ['22:18', '22:23', '22:25', '22:28', '22:30', '22:33', '22:35', '22:40', '22:18', '22:23', '22:25', '22:28', '22:30', '22:33', '22:35', '22:40'],
+                axisLabel: { //坐标轴刻度标签的相关设置。
+                    //		interval: 0,//设置为 1，表示『隔一个标签显示一个标签』
+                    //	margin:15,
+                    textStyle: {
+                        color: '#078ceb',
+                        fontStyle: 'normal',
+                        fontFamily: '微软雅黑',
+                        fontSize: 12,
+                    },
+                    rotate: 50,
+                },
+                axisTick: { //坐标轴刻度相关设置。
+                    show: false,
+                },
+                axisLine: { //坐标轴轴线相关设置
+                    lineStyle: {
+                        color: '#fff',
+                        opacity: 0.2
+                    }
+                },
+                splitLine: { //坐标轴在 grid 区域中的分隔线。
+                    show: false,
+                }
+            }],
+            yAxis: [{
+                type: 'value',
+                splitNumber: 5,
+                axisLabel: {
+                    textStyle: {
+                        color: '#a8aab0',
+                        fontStyle: 'normal',
+                        fontFamily: '微软雅黑',
+                        fontSize: 12,
+                    }
+                },
+                axisLine: {
+                    show: false
+                },
+                axisTick: {
+                    show: false
+                },
+                splitLine: {
+                    show: true,
+                    lineStyle: {
+                        color: ['#fff'],
+                        opacity: 0.06
+                    }
+                }
+
+            }],
+            series: [
+
+                {
+                    "name": "",
+                    type: 'pictorialBar',
+                    symbolSize: [20, 10],
+                    symbolOffset: [-10, -6],
+                    symbolPosition: 'end',
+                    z: 12,
+                    // "barWidth": "0",barGap
+                    "label": {
+                        "normal": {
+                            "show": true,
+                            "offset": [-10, 0],
+                            "position": "top",
+                            "textAlign": 'left',
+                            // "formatter": "{c}%"
+                            fontSize: 15,
+                            fontWeight: 'bold',
+                            color: 'rgba(230, 230, 230, 1)'
+                        }
+                    },
+                    color: "rgba(230, 230, 230, 1)",
+                    data: [10, 15, 30, 45, 55, 60, 62, 80, 80, 62, 60, 55, 45, 30, 15, 10]
+                }, {
+                    name: '上一次成绩',
+                    type: 'bar',
+                    stack: '1',
+                    data: [10, 15, 30, 45, 55, 60, 62, 80, 80, 62, 60, 55, 45, 30, 15, 10],
+                    barWidth: 20,
+                    barGap: 0, //柱间距离
+                    itemStyle: {
+                        normal: {
+                            show: true,
+                            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                                offset: 0,
+                                color: 'rgba(230, 230, 230, 1)'
+                            }, {
+                                offset: 1,
+                                color: 'rgba(255, 255, 255, 0)'
+                            }]),
+                            opacity: 0.8
+                        }
+                    },
+                },
+
+                {
+                    "name": "历史最优成绩", //头部
+                    "type": "pictorialBar",
+                    "symbolSize": [20, 10],
+                    "symbolOffset": [-10, -6],
+                    "z": 12,
+                    "symbolPosition": "end",
+                    // itemStyle:{
+                    //     color:'rgba(51,135,255, 1)',
+                    //     opacity:1,
+                    // },
+                    "label": {
+                        "normal": {
+                            "offset": [-10, 0],
+                            "show": true,
+                            "position": "top",
+                            // "formatter": "{c}%",
+                            fontSize: 15,
+                            fontWeight: 'bold',
+                            color: 'rgba(51,135,255, 1)'
+                        }
+                    },
+                    color: "rgba(51,135,255, 1)",
+                    "data": [110, 165, 60, 90, 105, 120, 124, 160, 170, 124, 120, 105, 85, 60, 165, 110]
+                }, {
+                    name: '历史最优',
+                    type: 'bar',
+                    stack: '1',
+                    barWidth: 20,
+                    barGap: '-100%',
+                    z: 0,
+                    itemStyle: {
+                        normal: {
+                            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                                offset: 0,
+                                color: "rgba(51,135,255, 1)"
+                            }, {
+                                offset: 1,
+                                color: "rgba(51,135,255, .2)"
+                            }]),
+                            opacity: .8
+                        },
+                    },
+
+                    data: [100, 150, 30, 45, 50, 60, 62, 80, 90, 62, 60, 50, 40, 30, 150, 100]
+                },
+
+                {
+                    "name": "",
+                    type: 'pictorialBar',
+                    symbolSize: [20, 10],
+                    symbolOffset: [10, -6],
+                    symbolPosition: 'end',
+                    z: 12,
+                    // "barWidth": "0",barGap
+                    "label": {
+                        "normal": {
+                            "offset": [10, 0],
+                            "show": true,
+                            "position": "top",
+                            // "formatter": "{c}%",
+                            fontSize: 15,
+                            fontWeight: 'bold',
+                            color: 'rgba(0, 255, 255, 1)'
+                        }
+                    },
+                    color: "rgba(0, 255, 255, 1)",
+                    data: [8, 5, 25, 30, 35, 55, 62, 78, 65, 55, 60, 45, 42, 15, 12, 5]
+                }, {
+                    name: '本次成绩',
+                    type: 'bar',
+                    data: [8, 5, 25, 30, 35, 55, 62, 78, 65, 55, 60, 45, 42, 15, 12, 5],
+                    barWidth: 20,
+                    barGap: 0, //柱间距离
+                    itemStyle: {
+                        normal: {
+                            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                                offset: 0,
+                                color: "rgba(0, 255, 255, 1)"
+                            }, {
+                                offset: 1,
+                                color: "rgba(255, 255, 255, 0)"
+                            }]),
+                            opacity: .8
+                        },
+                    },
+                },
+
+
+            ]
+        };
+        myChart.setOption(option);
+    },
+  },
+  beforeDestroy() {},
+};
+</script>
+
+<style lang="scss" scoped>
+.sn-container {
+  left: 50px;
+  top: 5000px;
+   width: 1000px;
+  height: 600px;
+
+}
+</style>
+
