@@ -1,0 +1,89 @@
+<script type="text/javascript">
+    var obj = {
+        id: "00-1"
+    }
+    var list1 = [{
+        id: 1,
+        bCode: '00-1',
+        aCode: "111-0",
+        isShow: 1
+    }, {
+        id: 2,
+        bCode: '111-0',
+        aCode: "111-1",
+        isShow: 1
+    }, {
+        id: 3,
+        bCode: '00-1',
+        aCode: "33-0",
+        isShow: 1
+    }, {
+        id: 4,
+        bCode: '33-0',
+        aCode: "1212-5",
+        isShow: 1
+    }, {
+        id: 5,
+        bCode: '00-1',
+        aCode: "134-4",
+        isShow: 1
+    }]
+
+    var list2 = [{
+        resourceCode: "111-1",
+        isShow: 1
+    }, {
+        resourceCode: "111-0",
+        isShow: 1
+    }, {
+        resourceCode: "33-0",
+        isShow: 1
+    }, {
+        resourceCode: "1212-5",
+        isShow: 1
+    }, {
+        resourceCode: "134-4",
+        isShow: 1
+    }, {
+        resourceCode: "00-1",
+        isShow: 1
+    }]
+
+    console.log("hellow");
+
+    var hideResourceCodeList = []
+
+    var topCode = obj.id;
+
+    function itrNode(lst, bCode, isChild) {
+        for (var node of lst) {
+            if (node.aCode == topCode) {
+                topCode = node.bCode
+            }
+            if (node.bCode == bCode) {
+                hideResourceCodeList.push(node.aCode);
+                if (isChild) {
+                    // 判断如果是最开始的节点的子节点则关闭显示
+                    node.isShow = 0;
+                }
+                itrNode(lst, node.aCode, true);
+            }
+        }
+    }
+
+    // 最开始入口，list1 数组，obj.id 作为开始父节点，false 表示最开始的节点作为父节点
+    itrNode(list1, obj.id, false);
+
+    console.log(hideResourceCodeList);
+
+    for (var res of list2) {
+        if (hideResourceCodeList.indexOf(res.resourceCode) > -1) {
+            res.isShow = 0;
+        }
+    }
+
+    console.log(list1);
+    console.log(topCode);
+
+    console.log(list2);
+</script>
